@@ -1,5 +1,5 @@
 <?php
-    include("db.php");
+    include("./db.php");
     
     if ($conexion->query("TRUNCATE TABLE users") === TRUE) {
         echo "La tabla 'users' ha sido reiniciada.";

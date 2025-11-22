@@ -1,6 +1,6 @@
 <?php
 session_start(); // Siempre va al inicio absoluto
-include("db.php"); 
+include("./db.php"); 
 
 // Activar errores para ver qué pasa (quítalo cuando ya funcione)
 ini_set('display_errors', 1);

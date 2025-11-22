@@ -1,5 +1,5 @@
 <?php
-include('db.php');
+include('./db.php');
 
 $id = $_GET['id'];
 $sql = "SELECT * FROM users WHERE id=$id";
@@ -7,7 +7,7 @@ $resultado = $conexion->query($sql);
 $row = $resultado->fetch_assoc();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
+    $name = $_POST['name'];
     $password = $_POST['password'];
 
     $sql = "UPDATE users SET name='$name', password='$password' WHERE id=$id";
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
     <label for="password">Contraseña:</label><br><br>
     <input type="password" id="password" name="password" required><br><br>
-    
+
         <section class="center-align"></section>
     <input class="input waves-effect waves-light light-blue darken-4" type="submit" value="Guardar Usuario">
     </form><br> 

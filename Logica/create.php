@@ -1,16 +1,14 @@
 <?php
-include('db.php');
+include('./db.php');
 
 $mensaje = "";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // 1. Recibimos solo Usuario y Contraseña
+    
     $username = $_POST['username']; // OJO: Aquí recibimos 'username'
     $password = $_POST['password']; 
 
-    // 2. Consulta SQL corregida
-    // IMPORTANTE: Estoy asumiendo que tu columna en la BD se llama 'username'.
-    // Si se llama 'usuario' o 'nombre', cambia la palabra 'username' justo después de INSERT INTO users (
+
     $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
     
     if ($conexion->query($sql) === TRUE) {
