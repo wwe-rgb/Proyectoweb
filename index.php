@@ -1,66 +1,77 @@
 <?php
 include("./Logica/db.php");
-
-$consulta = "SELECT * FROM users";
-$resultado = $conexion->query($consulta);
 ?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-
+    <title>UNAM - Iniciar Sesión</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-  
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    
+    <link rel="stylesheet" href="./Vistas/css/1-style.css">
 </head>
 <body>
 
-    <div class="container">
-        <div class="row center">
+    <nav>
+        <div class="nav-wrapper container">
+            <a href="https://www.unam.mx/" target="blank" class="brand-logo left">UNAM</a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="https://www.aragon.unam.mx/fes-aragon/#!/inicio" target="blank">FES Aragon</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="row">
             <div class="col s12 m6 offset-m3">
-                <div class="card login-card z-depth-3">
+                <div class="card white login-card z-depth-2">
+                    <div class="card-content center-align">
+                        <span class="card-title" style="color: #1565c0; margin-bottom: 30px;">Iniciar Sesión</span>
+                        
+                        <form action="./Logica/validarlogin.php" method="POST">
+                            <div class="input-field">
+                                <i class="material-icons prefix">account_circle</i>
+                                <input id="nombre_usuario" type="text" name="nombre_usuario" required>
+                                <label for="nombre_usuario">Usuario</label>
+                            </div>
 
-                    <h4 class="center">Iniciar Sesión</h4>
-                    <br>
+                            <div class="input-field">
+                                <i class="material-icons prefix">lock</i>
+                                <input id="password" type="password" name="password" required>
+                                <label for="password">Contraseña</label>
+                            </div>
 
-                    <form action="./Logica/validarlogin.php" method="POST">
-
-                        <div class="input-field">
-                            <i class="material-icons prefix">account_circle</i>
-                            <input id="nombre_usuario" type="text" name="nombre_usuario" required>
-                            <label for="nombre_usuario">Nombre de Usuario</label>
-                        </div>
-
-                        <div class="input-field">
-                            <i class="material-icons prefix">lock</i>
-                            <input id="password" type="password" name="password" required>
-                            <label for="password">Contraseña</label>
-                        </div>
-
-                        <button class="btn waves-effect waves-light blue darken-2" type="submit" style="width: 100%;">
-                            Entrar
-                            <i class="material-icons right">send</i>
-                        </button>
-
-                    </form>
-
+                            <br>
+                            <button class="btn waves-effect waves-light blue darken-2 btn-entrar" type="submit">
+                                ENTRAR
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="center-align">
-            <a href="./Logica/create.php" class="btn-large waves-effect waves-light orange darken-4">
-                <i class="material-icons left">person_add</i>
-                Agregar Nuevo Usuario
-            </a>
+    </main>
+
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row" style="margin-bottom: 0;">
+                <div class="col s12">
+                    <h5 class="white-text">FES Aragon</h5>
+                    <p class="grey-text text-lighten-4" style="font-size: 0.9rem;">
+                        Hecho en México, Universidad Nacional Autónoma de México (UNAM), todos los derechos reservados 2025.
+                        Esta página puede ser reproducida con fines no lucrativos.
+                    </p>
+                </div>
+            </div>
         </div>
-        <br><br>
+        <div class="footer-copyright">
+            <div class="container grey-text text-lighten-3">
+                Creditos Materialize
+            </div>
+        </div>
+    </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
